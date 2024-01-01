@@ -1,5 +1,5 @@
 import './App.css';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import MenuContainer from './MenuContainer';
 import Header from './components/Header';
 import HomeRounded from '@mui/icons-material/HomeRounded';
@@ -12,8 +12,14 @@ import BannerName from './components/BannerName';
 import SubMenuContainer from './components/SubMenuContainer';
 import MenuCard from './components/MenuCard';
 import { MenuItems, Items } from './data';
+import ItemCard from './components/ItemCard';
 
 function App() {
+  //Main Dish State
+  const [isMainData, setIsMainData] = useState(
+    Items.filter((item) => item.itemId === 'buger01')
+  );
+
   useEffect(() => {
     const menuLi = document.querySelectorAll('#menu li');
 
@@ -38,7 +44,7 @@ function App() {
     menuCards.forEach((card) =>
       card.addEventListener('click', setMenuCardActive)
     );
-  }, []);
+  }, [isMainData]);
 
   return (
     <div className="App">
@@ -72,7 +78,19 @@ function App() {
                 ))}
             </div>
 
-            <div className="dishItemContainer"></div>
+            <div className="dishItemContainer">
+              {isMainData &&
+                isMainData.map((data) => (
+                  <ItemCard
+                    key={data.id}
+                    itemId={data.id}
+                    imgSrc={data.imgSrc}
+                    name={data.name}
+                    ratings={data.ratings}
+                    price={data.price}
+                  />
+                ))}
+            </div>
           </div>
         </div>
         <div className="rightMenu"></div>

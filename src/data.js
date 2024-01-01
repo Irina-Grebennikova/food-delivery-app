@@ -48,7 +48,7 @@ const Items = [
     id: 1,
     itemId: 'buger01',
     imgSrc:
-      'https://firebasestorage.googleapis.com/v0/b/food-delivery-37c59.appspot.com/o/Images%2Fburger1.png?alt=media&token=319dfbe9-462b-46ea-8f38-6ca7a20319e0',
+      'https://firebasestorage.googleapis.com/v0/b/food-delivery-abca3.appspot.com/o/burger1.png?alt=media&token=c810506c-63ca-4cef-8cbc-961c9c8554cc',
     name: 'Burger Bistro',
     ratings: 5,
     price: '7.5',
@@ -57,7 +57,7 @@ const Items = [
     id: 2,
     itemId: 'buger01',
     imgSrc:
-      'https://firebasestorage.googleapis.com/v0/b/food-delivery-37c59.appspot.com/o/Images%2Fburger2.png?alt=media&token=b256ed7a-fe35-4051-9bf5-24f39b79f2b2',
+      'https://firebasestorage.googleapis.com/v0/b/food-delivery-abca3.appspot.com/o/burger2.png?alt=media&token=86fe2f3e-1934-4a1d-9b62-c5380671e96e',
     name: "Smokin' Burger",
     ratings: 5,
     price: '12',
@@ -66,7 +66,7 @@ const Items = [
     id: 3,
     itemId: 'buger01',
     imgSrc:
-      'https://firebasestorage.googleapis.com/v0/b/food-delivery-37c59.appspot.com/o/Images%2Fburger3.png?alt=media&token=0ebe8311-6378-411b-9b6e-d7a6d2a106a2',
+      'https://firebasestorage.googleapis.com/v0/b/food-delivery-abca3.appspot.com/o/burger3.png?alt=media&token=42dfd8cb-901e-46dd-8ac4-2d8a8bf8fe30',
     name: 'Euphoria Burger',
     ratings: 5,
     price: '12',
@@ -75,7 +75,7 @@ const Items = [
     id: 4,
     itemId: 'buger01',
     imgSrc:
-      'https://firebasestorage.googleapis.com/v0/b/food-delivery-37c59.appspot.com/o/Images%2Fburger4.png?alt=media&token=f219c72c-22b5-484a-9135-34bbb84e7faa',
+      'https://firebasestorage.googleapis.com/v0/b/food-delivery-abca3.appspot.com/o/burger4.png?alt=media&token=d303c96e-e11c-4e40-aea3-5a7cb4a78a57',
     name: 'Sassy Burger',
     ratings: 5,
     price: '12',
@@ -84,7 +84,7 @@ const Items = [
     id: 5,
     itemId: 'buger01',
     imgSrc:
-      'https://firebasestorage.googleapis.com/v0/b/food-delivery-37c59.appspot.com/o/Images%2Fburger5.png?alt=media&token=e8963c79-af46-4f33-a28d-059f98f464e3',
+      'https://firebasestorage.googleapis.com/v0/b/food-delivery-abca3.appspot.com/o/burger5.png?alt=media&token=a0327777-21ab-4f9a-b6ad-7a0aef9471f1',
     name: 'Jazz Burger',
     ratings: 5,
     price: '12',
@@ -93,7 +93,7 @@ const Items = [
     id: 6,
     itemId: 'buger01',
     imgSrc:
-      'https://firebasestorage.googleapis.com/v0/b/food-delivery-37c59.appspot.com/o/Images%2Fburger6.png?alt=media&token=f2b8febd-f0f8-48d7-9e1a-72d26b7bb36b',
+      'https://firebasestorage.googleapis.com/v0/b/food-delivery-abca3.appspot.com/o/burger6.png?alt=media&token=1d19e4a8-7559-4453-ae97-f0b26138d3c2',
     name: 'Healthy Buns',
     ratings: 5,
     price: '12',
@@ -373,7 +373,7 @@ const Items = [
     id: 41,
     itemId: 'buger01',
     imgSrc:
-      'https://firebasestorage.googleapis.com/v0/b/food-delivery-37c59.appspot.com/o/Images%2Fburger1.png?alt=media&token=319dfbe9-462b-46ea-8f38-6ca7a20319e0',
+      'https://firebasestorage.googleapis.com/v0/b/food-delivery-abca3.appspot.com/o/burger1.png?alt=media&token=c810506c-63ca-4cef-8cbc-961c9c8554cc',
     name: 'Burger Bistro',
     ratings: 5,
     price: '7.5',
@@ -382,7 +382,7 @@ const Items = [
     id: 42,
     itemId: 'buger01',
     imgSrc:
-      'https://firebasestorage.googleapis.com/v0/b/food-delivery-37c59.appspot.com/o/Images%2Fburger2.png?alt=media&token=b256ed7a-fe35-4051-9bf5-24f39b79f2b2',
+      'https://firebasestorage.googleapis.com/v0/b/food-delivery-abca3.appspot.com/o/burger2.png?alt=media&token=86fe2f3e-1934-4a1d-9b62-c5380671e96e',
     name: "Smokin' Burger",
     ratings: 5,
     price: '12',
@@ -391,7 +391,7 @@ const Items = [
     id: 43,
     itemId: 'buger01',
     imgSrc:
-      'https://firebasestorage.googleapis.com/v0/b/food-delivery-37c59.appspot.com/o/Images%2Fburger3.png?alt=media&token=0ebe8311-6378-411b-9b6e-d7a6d2a106a2',
+      'https://firebasestorage.googleapis.com/v0/b/food-delivery-abca3.appspot.com/o/burger3.png?alt=media&token=42dfd8cb-901e-46dd-8ac4-2d8a8bf8fe30',
     name: 'Euphoria Burger',
     ratings: 5,
     price: '12',
@@ -400,7 +400,7 @@ const Items = [
     id: 44,
     itemId: 'buger01',
     imgSrc:
-      'https://firebasestorage.googleapis.com/v0/b/food-delivery-37c59.appspot.com/o/Images%2Fburger4.png?alt=media&token=f219c72c-22b5-484a-9135-34bbb84e7faa',
+      'https://firebasestorage.googleapis.com/v0/b/food-delivery-abca3.appspot.com/o/burger4.png?alt=media&token=d303c96e-e11c-4e40-aea3-5a7cb4a78a57',
     name: 'Sassy Burger',
     ratings: 5,
     price: '12',
@@ -409,7 +409,7 @@ const Items = [
     id: 45,
     itemId: 'buger01',
     imgSrc:
-      'https://firebasestorage.googleapis.com/v0/b/food-delivery-37c59.appspot.com/o/Images%2Fburger5.png?alt=media&token=e8963c79-af46-4f33-a28d-059f98f464e3',
+      'https://firebasestorage.googleapis.com/v0/b/food-delivery-abca3.appspot.com/o/burger5.png?alt=media&token=a0327777-21ab-4f9a-b6ad-7a0aef9471f1',
     name: 'Jazz Burger',
     ratings: 5,
     price: '12',
@@ -418,7 +418,7 @@ const Items = [
     id: 46,
     itemId: 'buger01',
     imgSrc:
-      'https://firebasestorage.googleapis.com/v0/b/food-delivery-37c59.appspot.com/o/Images%2Fburger6.png?alt=media&token=f2b8febd-f0f8-48d7-9e1a-72d26b7bb36b',
+      'https://firebasestorage.googleapis.com/v0/b/food-delivery-abca3.appspot.com/o/burger6.png?alt=media&token=1d19e4a8-7559-4453-ae97-f0b26138d3c2',
     name: 'Healthy Buns',
     ratings: 5,
     price: '12',
