@@ -9,6 +9,9 @@ import Favorite from '@mui/icons-material/Favorite';
 import Settings from '@mui/icons-material/Settings';
 import SummarizeRounded from '@mui/icons-material/SummarizeRounded';
 import BannerName from './components/BannerName';
+import SubMenuContainer from './components/SubMenuContainer';
+import MenuCard from './components/MenuCard';
+import { MenuItems, Items } from './data';
 
 function App() {
   useEffect(() => {
@@ -22,6 +25,19 @@ function App() {
     menuLi.forEach((li) => {
       li.addEventListener('click', setMenuActive);
     });
+
+    const menuCards = document
+      .querySelector('.rowContainer')
+      .querySelectorAll('.rowMenuCard');
+
+    function setMenuCardActive() {
+      menuCards.forEach((card) => card.classList.remove('active'));
+      this.classList.add('active');
+    }
+
+    menuCards.forEach((card) =>
+      card.addEventListener('click', setMenuCardActive)
+    );
   }, []);
 
   return (
@@ -39,7 +55,25 @@ function App() {
             />
           </div>
 
-          <div className="dishContainer"></div>
+          <div className="dishContainer">
+            <div className="menuCard">
+              <SubMenuContainer name={'Menu Category'} />
+            </div>
+            <div className="rowContainer">
+              {MenuItems &&
+                MenuItems.map((data) => (
+                  <div key={data.id}>
+                    <MenuCard
+                      imgSrc={data.imgSrc}
+                      name={data.name}
+                      isActive={data.id === 1}
+                    />
+                  </div>
+                ))}
+            </div>
+
+            <div className="dishItemContainer"></div>
+          </div>
         </div>
         <div className="rightMenu"></div>
       </main>
