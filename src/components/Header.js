@@ -3,8 +3,19 @@ import {
   SearchRounded,
   ShoppingCartRounded,
 } from '@mui/icons-material';
+import { useEffect } from 'react';
 
 function Header() {
+  useEffect(() => {
+    const toggleMenu = document.querySelector('.toggleMenu');
+
+    const toggleActive = () =>
+      document.querySelector('.rightMenu').classList.toggle('active');
+
+    toggleMenu.addEventListener('click', toggleActive);
+    return () => toggleMenu.removeEventListener('click', toggleActive);
+  }, []);
+
   return (
     <header>
       <img

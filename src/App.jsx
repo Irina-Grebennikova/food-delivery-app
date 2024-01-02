@@ -13,6 +13,8 @@ import SubMenuContainer from './components/SubMenuContainer';
 import MenuCard from './components/MenuCard';
 import { MenuItems, Items } from './data';
 import ItemCard from './components/ItemCard';
+import DebitCard from './components/DebitCard';
+import CartItem from './components/CartItem';
 
 function App() {
   //Main Dish State
@@ -46,6 +48,11 @@ function App() {
     );
   }, [isMainData]);
 
+  // set main dish items on filter
+  const setData = (itemId) => {
+    setIsMainData(Items.filter((item) => item.itemId === itemId));
+  };
+
   return (
     <div className="App">
       <Header />
@@ -68,7 +75,7 @@ function App() {
             <div className="rowContainer">
               {MenuItems &&
                 MenuItems.map((data) => (
-                  <div key={data.id}>
+                  <div key={data.id} onClick={() => setData(data.itemId)}>
                     <MenuCard
                       imgSrc={data.imgSrc}
                       name={data.name}
@@ -93,7 +100,38 @@ function App() {
             </div>
           </div>
         </div>
-        <div className="rightMenu"></div>
+        <div className="rightMenu">
+          <div className="debitCardContainer">
+            <div className="debitCard">
+              <DebitCard />
+            </div>
+          </div>
+
+          <div className="cartCheckOutContainer">
+            <SubMenuContainer name={'Cart Items'} />
+            <div className="cartContainer">
+              <div className="cartItems">
+                <CartItem
+                  name={'Burger Bistro'}
+                  imgSrc={
+                    'https://firebasestorage.googleapis.com/v0/b/food-delivery-abca3.appspot.com/o/burger1.png?alt=media&token=c810506c-63ca-4cef-8cbc-961c9c8554cc'
+                  }
+                  qty={'4'}
+                  price={'7.95'}
+                />
+              </div>
+            </div>
+
+            <div className="totalSection">
+              <h3>Total</h3>
+              <p>
+                <span>$ </span>45.0
+              </p>
+            </div>
+
+            <button className="checkOut">Check Out</button>
+          </div>
+        </div>
       </main>
 
       <div className="bottomMenu">
