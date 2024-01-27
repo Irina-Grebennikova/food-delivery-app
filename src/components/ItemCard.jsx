@@ -2,13 +2,28 @@ import StarRounded from '@mui/icons-material/StarRounded';
 import Favorite from '@mui/icons-material/Favorite';
 import AddRounded from '@mui/icons-material/AddRounded';
 import { useState } from 'react';
+import { Items } from '../data';
+import { useStateValue } from '../StateProvider';
+import { actionType } from '../reducer';
 
 function ItemCard({ imgSrc, name, ratings, price, itemId }) {
   const [isFavorite, setIsFavorite] = useState(false);
   const [currentValue, setCurrentValue] = useState(Math.floor(ratings));
+  const [{ cart }, dispatch] = useStateValue();
 
   const handleClick = (value) => {
     setCurrentValue(value);
+  };
+
+  const addToCart = () => {
+    const isInCart = cart.find((item) => item.id === itemId);
+    if (isInCart) {
+      return;
+    }
+    dispatch({
+      type: actionType.SET_CART,
+      cart: cart.concat(Items.find((n) => n.id === itemId)),
+    });
   };
 
   return (
@@ -41,7 +56,7 @@ function ItemCard({ imgSrc, name, ratings, price, itemId }) {
               {price}
             </h3>
           </div>
-          <i className="addToCart">
+          <i className="addToCart" onClick={addToCart}>
             <AddRounded />
           </i>
         </div>

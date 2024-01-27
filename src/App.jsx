@@ -15,12 +15,14 @@ import { MenuItems, Items } from './data';
 import ItemCard from './components/ItemCard';
 import DebitCard from './components/DebitCard';
 import CartItem from './components/CartItem';
+import { useStateValue } from './StateProvider';
 
 function App() {
   //Main Dish State
   const [isMainData, setIsMainData] = useState(
     Items.filter((item) => item.itemId === 'buger01')
   );
+  const [{ cart }] = useStateValue();
 
   useEffect(() => {
     const menuLi = document.querySelectorAll('#menu li');
@@ -107,30 +109,35 @@ function App() {
             </div>
           </div>
 
-          <div className="cartCheckOutContainer">
-            <SubMenuContainer name={'Cart Items'} />
-            <div className="cartContainer">
-              <div className="cartItems">
-                <CartItem
-                  name={'Burger Bistro'}
-                  imgSrc={
-                    'https://firebasestorage.googleapis.com/v0/b/food-delivery-abca3.appspot.com/o/burger1.png?alt=media&token=c810506c-63ca-4cef-8cbc-961c9c8554cc'
-                  }
-                  qty={'4'}
-                  price={'7.95'}
-                />
+          {!cart.length ? (
+            <div></div>
+          ) : (
+            <div className="cartCheckOutContainer">
+              <SubMenuContainer name={'Cart Items'} />
+              <div className="cartContainer">
+                <div className="cartItems">
+                  {cart.map((data) => (
+                    <CartItem
+                      key={data.id}
+                      itemId={data.id}
+                      name={data.name}
+                      imgSrc={data.imgSrc}
+                      price={data.price}
+                    />
+                  ))}
+                </div>
               </div>
-            </div>
 
-            <div className="totalSection">
-              <h3>Total</h3>
-              <p>
-                <span>$ </span>45.0
-              </p>
-            </div>
+              <div className="totalSection">
+                <h3>Total</h3>
+                <p>
+                  <span>$ </span>45.0
+                </p>
+              </div>
 
-            <button className="checkOut">Check Out</button>
-          </div>
+              <button className="checkOut">Check Out</button>
+            </div>
+          )}
         </div>
       </main>
 
