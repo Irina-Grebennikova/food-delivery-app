@@ -3,18 +3,11 @@ import {
   SearchRounded,
   ShoppingCartRounded,
 } from '@mui/icons-material';
-import { useEffect } from 'react';
+import { useStateValue } from '../StateProvider';
+import { actionType } from '../reducer';
 
 function Header() {
-  useEffect(() => {
-    const toggleMenu = document.querySelector('.toggleMenu');
-
-    const toggleActive = () =>
-      document.querySelector('.rightMenu').classList.toggle('active');
-
-    toggleMenu.addEventListener('click', toggleActive);
-    return () => toggleMenu.removeEventListener('click', toggleActive);
-  }, []);
+  const [{ isSidebarOpen, user }, dispatch] = useStateValue();
 
   return (
     <header>
@@ -45,10 +38,18 @@ function Header() {
           />
         </div>
 
-        <h2 className="userName">John Doe</h2>
+        <h2 className="userName">{user.fullName}</h2>
       </div>
 
-      <div className="toggleMenu">
+      <div
+        className="toggleMenu"
+        onClick={() =>
+          dispatch({
+            type: actionType.SET_IS_SIDEBAR_OPEN,
+            isOpen: !isSidebarOpen,
+          })
+        }
+      >
         <BarChart className="toggleIcon" />
       </div>
     </header>
