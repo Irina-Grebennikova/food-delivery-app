@@ -3,6 +3,7 @@ export const initialState = {
   cart: [],
   total: null,
   isSidebarOpen: false,
+  searchQuery: '',
   user: {
     name: 'Daria',
     fullName: 'Daria Doe',
@@ -14,6 +15,8 @@ export const actionType = {
   SET_TOTAL: 'SET_TOTAL',
   SET_CATEGORY: 'SET_CATEGORY',
   SET_IS_SIDEBAR_OPEN: 'SET_IS_SIDEBAR_OPEN',
+  SET_SEARCH_QUERY: 'SET_SEARCH_QUERY',
+  SET_USER: 'SET_USER',
 };
 
 const reducer = (state, action) => {
@@ -37,6 +40,16 @@ const reducer = (state, action) => {
       return {
         ...state,
         isSidebarOpen: action.isOpen,
+      };
+    case actionType.SET_SEARCH_QUERY:
+      return {
+        ...state,
+        searchQuery: action.searchQuery,
+      };
+    case actionType.SET_USER:
+      return {
+        ...state,
+        user: action.user,
       };
     default:
       return state;

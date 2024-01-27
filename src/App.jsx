@@ -11,11 +11,17 @@ import Sidebar from './components/Sidebar';
 
 function App() {
   const [products, setProducts] = useState([]);
-  const [{ categoryId, user }] = useStateValue();
+  const [{ categoryId, searchQuery, user }] = useStateValue();
 
   useEffect(() => {
-    setProducts(Items.filter((item) => item.categoryId === categoryId));
-  }, [categoryId]);
+    setProducts(
+      Items.filter(
+        (item) =>
+          item.categoryId === categoryId &&
+          item.name.toLowerCase().includes(searchQuery.toLowerCase().trim())
+      )
+    );
+  }, [categoryId, searchQuery]);
 
   return (
     <div className="App">

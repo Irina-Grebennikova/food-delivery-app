@@ -11,6 +11,7 @@
 
 header {
   display: flex;
+  gap: 10px;
   align-items: center;
   justify-content: space-between;
   padding: 5px 15px;
@@ -30,14 +31,14 @@ header {
 }
 
 .inputBox {
-  background-color: #fff;
-  border-radius: 25px;
-  box-shadow: 0px 3px 20px rgba(0, 0, 0, 0.15);
   display: flex;
   align-items: center;
-  overflow: hidden;
   padding: 8px 15px;
-  width: 120px;
+  max-width: 600px;
+  overflow: hidden;
+  border-radius: 25px;
+  background-color: #fff;
+  box-shadow: 0px 3px 20px rgba(0, 0, 0, 0.15);
 }
 
 .inputBox .searchIcon {
@@ -303,7 +304,7 @@ main {
 /*dish container*/
 .dishContainer {
   width: 100%;
-  padding: 10px 0 60px;
+  padding: 10px 0 0;
 }
 
 .menuCard {
@@ -563,12 +564,28 @@ main {
   align-items: center;
   justify-content: center;
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+  transition: 0.2s;
   cursor: pointer;
+}
+
+@media (hover: hover) {
+  .itemContent .addToCart:hover {
+    transform: scale(1.1);
+  }
 }
 
 .itemContent .addToCart .MuiSvgIcon-root {
   color: #faf9fb;
   font-size: 16px;
+}
+
+.itemContent .addToCart:active {
+  background: #faf9fb;
+  border: 1px solid #f8901c;
+}
+
+.itemContent .addToCart:active .MuiSvgIcon-root {
+  color: #f8901c;
 }
 
 /*Right Menu */
@@ -864,7 +881,7 @@ main {
 
 @media screen and (min-width: 650px) {
   .rowContainer {
-    justify-content: space-between;
+    justify-content: space-around;
   }
 
   .inputBox {
@@ -888,7 +905,8 @@ main {
 
   .mainContainer {
     width: calc(100% - 350px);
-    padding: 10px 30px;
+    padding-right: 30px;
+    padding-left: 30px;
   }
 
   .banner {

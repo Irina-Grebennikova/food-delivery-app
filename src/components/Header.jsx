@@ -7,7 +7,7 @@ import { useStateValue } from '../StateProvider';
 import { actionType } from '../reducer';
 
 function Header() {
-  const [{ isSidebarOpen, user }, dispatch] = useStateValue();
+  const [{ isSidebarOpen, user, cart }, dispatch] = useStateValue();
 
   return (
     <header>
@@ -19,13 +19,22 @@ function Header() {
 
       <div className="inputBox">
         <SearchRounded className="searchIcon" />
-        <input type="text" placeholder="Search" />
+        <input
+          type="text"
+          placeholder="Search"
+          onChange={(e) =>
+            dispatch({
+              type: actionType.SET_SEARCH_QUERY,
+              searchQuery: e.target.value,
+            })
+          }
+        />
       </div>
 
       <div className="shoppingCart">
         <ShoppingCartRounded className="cart" />
         <div className="cart_content">
-          <p>2 </p>
+          <p>{cart.length}</p>
         </div>
       </div>
 
