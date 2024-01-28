@@ -6,7 +6,7 @@ import { Items } from '../data';
 import { useStateValue } from '../StateProvider';
 import { actionType } from '../reducer';
 
-function ItemCard({ imgSrc, name, ratings, price, itemId }) {
+const ItemCard = ({ imgSrc, name, ratings, price, itemId }) => {
   const [isFavorite, setIsFavorite] = useState(false);
   const [currentValue, setCurrentValue] = useState(Math.floor(ratings));
   const [{ cart }, dispatch] = useStateValue();
@@ -20,9 +20,11 @@ function ItemCard({ imgSrc, name, ratings, price, itemId }) {
     if (isInCart) {
       return;
     }
+    const newCartItem = Items.find((n) => n.id === itemId);
+    newCartItem.count = 1;
     dispatch({
       type: actionType.SET_CART,
-      cart: cart.concat(Items.find((n) => n.id === itemId)),
+      cart: cart.concat(newCartItem),
     });
   };
 
@@ -63,6 +65,6 @@ function ItemCard({ imgSrc, name, ratings, price, itemId }) {
       </div>
     </div>
   );
-}
+};
 
 export default ItemCard;

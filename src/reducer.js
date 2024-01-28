@@ -1,7 +1,7 @@
 export const initialState = {
   categoryId: 'buger01',
   cart: [],
-  total: null,
+  total: 0,
   isSidebarOpen: false,
   searchQuery: '',
   user: {

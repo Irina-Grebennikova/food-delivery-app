@@ -1,32 +1,20 @@
-import { useEffect, useState } from 'react';
+import { useCallback, useEffect, useState } from 'react';
 import AddRounded from '@mui/icons-material/AddRounded';
 import RemoveRounded from '@mui/icons-material/RemoveRounded';
-import { useStateValue } from '../StateProvider';
-import { actionType } from '../reducer';
 
-function CartItem({ price, imgSrc, name, itemId }) {
-  const [qty, setQty] = useState(1);
-  const [itemPrice, setItemPrice] = useState(parseInt(qty) * parseFloat(price));
-  const [{ cart }, dispatch] = useStateValue();
+const CartItem = ({ events, item }) => {
+  const { count, price, imgSrc, name } = item;
+
+  const calculateItemPrice = useCallback(
+    () => parseInt(count) * parseFloat(price),
+    [count, price]
+  );
+
+  const [itemPrice, setItemPrice] = useState(calculateItemPrice());
 
   useEffect(() => {
-    setItemPrice(parseInt(qty) * parseFloat(price));
-  }, [qty, price]);
-
-  const updateQuantity = (action, id) => {
-    if (action === 'add') {
-      setQty(qty + 1);
-      return;
-    }
-    if (qty === 1) {
-      dispatch({
-        type: actionType.SET_CART,
-        cart: cart.filter((item) => item.id !== id),
-      });
-      return;
-    }
-    setQty(qty - 1);
-  };
+    setItemPrice(calculateItemPrice());
+  }, [count, price, calculateItemPrice]);
 
   return (
     <div className="cartItem">
@@ -37,15 +25,15 @@ function CartItem({ price, imgSrc, name, itemId }) {
       <div className="itemSection">
         <h2 className="itemName">{name}</h2>
         <div className="itemQuantity">
-          <span>x {qty}</span>
+          <span>x {count}</span>
           <div className="quantity">
             <RemoveRounded
               className="itemRemove"
-              onClick={() => updateQuantity('remove', itemId)}
+              onClick={() => events.decrement(item)}
             />
             <AddRounded
               className="itemAdd"
-              onClick={() => updateQuantity('add', itemId)}
+              onClick={() => events.increment(item)}
             />
           </div>
         </div>
@@ -57,6 +45,6 @@ function CartItem({ price, imgSrc, name, itemId }) {
       </p>
     </div>
   );
-}
+};
 
 export default CartItem;
